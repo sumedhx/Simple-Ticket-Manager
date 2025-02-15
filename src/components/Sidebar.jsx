@@ -32,9 +32,9 @@ const Sidebar = () => {
           <p><strong>Name:</strong> {userData.Name}</p>
           <p><strong>Role:</strong> {userData.Role}</p>
           <p><strong>Email:</strong> {userData.Email}</p>
-          <button className="asideBtn">
-            {location.pathname == '/dashboard' ? <Link className="asideBtn-link" to="/manage-tickets">Manage Tickets</Link> : <Link className="asideBtn-link" to="/dashboard">Dashboard</Link>}
-          </button>
+
+            {location.pathname == '/dashboard' ? <Link className="asideBtn-link" to="/manage-tickets"><button className="asideBtn">Manage Tickets</button></Link> : <Link className="asideBtn-link" to="/dashboard"><button className="asideBtn">Dashboard</button></Link>}
+
           <button className="asideBtn" onClick={() => signOut(auth)}>Logout</button>
         </>
       ) : (

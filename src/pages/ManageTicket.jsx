@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { collection, getDocs, updateDoc, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import Sidebar from "../components/Sidebar";
+import { useAuth } from "../firebaseConfig";
+import { auth } from "../firebaseConfig";
 
 const ManageTicket = () => {
   const [tickets, setTickets] = useState([]);
@@ -41,6 +43,7 @@ const ManageTicket = () => {
     setModalType("edit");
   };
 
+  const currentUser = auth.currentUser;
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this ticket?")) {
       await deleteDoc(doc(db, "tickets", id));
@@ -95,7 +98,9 @@ const ManageTicket = () => {
                 <td className="actionBtn-container">
                   <button className="actionBtn" onClick={() => handleView(ticket)}>View</button>
                   <button className="actionBtn" onClick={() => handleEdit(ticket)}>Edit</button>
-                  <button className="actionBtn" onClick={() => handleDelete(ticket.id)}>Delete</button>
+                  {currentUser?.email !== "agent@support.com" && (
+                        <button className="actionBtn" onClick={() => handleDelete(ticket.id)}>Delete</button>
+                    )}
                 </td>
               </tr>
             ))}
