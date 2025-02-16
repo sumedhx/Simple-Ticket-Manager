@@ -115,6 +115,8 @@ const ManageTicket = () => {
               <p><strong>ID:</strong> {selectedTicket.id}</p>
               <p><strong>Title:</strong> {selectedTicket.title}</p>
               <p><strong>Description:</strong> {selectedTicket.description}</p>
+              <p><strong>Date: </strong> {selectedTicket.createdAt ? new Date(selectedTicket.createdAt.seconds * 1000).toLocaleDateString() : "N/A"}</p>
+              <p><strong>Time: </strong> {selectedTicket.createdAt ? new Date(selectedTicket.createdAt.seconds * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }) : "N/A"}</p>
               <p><strong>Priority:</strong> {selectedTicket.priority || "N/A"}</p>
               <p><strong>Status:</strong> {selectedTicket.status || "Open"}</p>
               <p><strong>Assigned To:</strong> {selectedTicket.assignedTo || "Unassigned"}</p>

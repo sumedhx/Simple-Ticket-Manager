@@ -6,7 +6,8 @@
 .pnp.js
 src/pages/temp.md
 .env
-
+/build
+temp.md
 
 # testing
 /coverage
