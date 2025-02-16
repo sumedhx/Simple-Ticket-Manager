@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { collection, getDocs, updateDoc, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import Sidebar from "../components/Sidebar";
-import { useAuth } from "../firebaseConfig";
 import { auth } from "../firebaseConfig";
 
 const ManageTicket = () => {

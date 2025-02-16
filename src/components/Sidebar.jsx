@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebaseConfig";
-import { Link, Location, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const [userData, setUserData] = useState(null);
@@ -10,7 +10,8 @@ const Sidebar = () => {
   const location = useLocation();
   const navigate = useNavigate()
   const [user, setUser] = useState(null);
-
+  console.log(user)
+  
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
@@ -50,7 +51,7 @@ const handleLogout = async () => {
           <p><strong>Role:</strong> {userData.Role}</p>
           <p><strong>Email:</strong> {userData.Email}</p>
 
-            {location.pathname == '/dashboard' ? <Link className="asideBtn-link" to="/manage-tickets"><button className="asideBtn">Manage Tickets</button></Link> : <Link className="asideBtn-link" to="/dashboard"><button className="asideBtn">Dashboard</button></Link>}
+            {location.pathname === '/dashboard' ? <Link className="asideBtn-link" to="/manage-tickets"><button className="asideBtn">Manage Tickets</button></Link> : <Link className="asideBtn-link" to="/dashboard"><button className="asideBtn">Dashboard</button></Link>}
 
             <button className="asideBtn" onClick={handleLogout}>Logout</button>
         </>

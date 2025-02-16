@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import { useNavigate, Link } from "react-router-dom";
+import { getAuth, onAuthStateChanged} from "firebase/auth";
+import { useNavigate} from "react-router-dom";
 import { collection, doc, getDoc, query, orderBy, onSnapshot, limit } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import CreateTicket from "../components/CreateTicket";
@@ -8,6 +8,7 @@ import Sidebar from "../components/Sidebar";
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
+  console.log(user)
   const [userData, setUserData] = useState({});
   const [tickets, setTickets] = useState([]);
   const [showModal, setShowModal] = useState(false);
