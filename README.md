@@ -1,9 +1,6 @@
 # Simple Ticket Manager
 
-Live Link - https://simple-ticket-manager.netlify.app/
-
-<a href="https://example.com" target="_blank">Click here</a>
-
+🚀 Live Link - <a href="https://simple-ticket-manager.netlify.app/" target="_blank">https://simple-ticket-manager.netlify.app/</a>
 
 
 ## Screenshot 
